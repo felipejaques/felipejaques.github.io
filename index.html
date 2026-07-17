@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Felipe Jaques - Desenvolvedor de software. Portfólio pessoal com projetos, habilidades e informações de contato.">
+  <title>Felipe Jaques | Desenvolvedor</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <!-- Task 2.1: Navegação -->
+  <nav class="nav" role="navigation" aria-label="Navegação principal">
+    <div class="nav__container">
+      <a href="#hero" class="nav__logo">FJ</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menu">
+        <span class="nav__toggle-icon"></span>
+      </button>
+      <ul id="nav-menu" class="nav__menu" role="list">
+        <li><a href="#hero" class="nav__link nav__link--active">Início</a></li>
+        <li><a href="#sobre" class="nav__link">Sobre</a></li>
+        <li><a href="#projetos" class="nav__link">Projetos</a></li>
+        <li><a href="#contato" class="nav__link">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Task 2.2: Seção Hero -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <div class="hero__container">
+        <h1 id="hero-title" class="hero__title">Felipe Jaques</h1>
+        <p class="hero__description">Desenvolvedor de software focado em criar soluções eficientes e escaláveis. Apaixonado por código limpo, boas práticas e aprendizado contínuo.</p>
+        <a href="#contato" class="hero__cta">Entre em contato</a>
+      </div>
+    </section>
+
+    <!-- Task 2.3: Seção Sobre -->
+    <section id="sobre" class="sobre" aria-labelledby="sobre-title">
+      <div class="sobre__container">
+        <h2 id="sobre-title" class="sobre__title">Sobre mim</h2>
+        <div class="sobre__content">
+          <div class="sobre__text">
+            <p>Sou desenvolvedor de software com experiência em construir aplicações web modernas e robustas. Trabalho com tecnologias front-end e back-end, sempre buscando entregar soluções de qualidade que atendam às necessidades do negócio.</p>
+            <p>Minha experiência inclui desenvolvimento com JavaScript, TypeScript, Node.js e frameworks modernos. Valorizo código bem estruturado, testes automatizados e processos de desenvolvimento ágeis.</p>
+          </div>
+          <div class="sobre__skills">
+            <h3 class="sobre__skills-title">Habilidades</h3>
+            <ul class="sobre__skills-list" role="list">
+              <li>JavaScript / TypeScript</li>
+              <li>Node.js</li>
+              <li>HTML / CSS</li>
+              <li>React</li>
+              <li>Git / GitHub</li>
+              <li>APIs REST</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Task 2.4: Seção Projetos -->
+    <section id="projetos" class="projetos" aria-labelledby="projetos-title">
+      <div class="projetos__container">
+        <h2 id="projetos-title" class="projetos__title">Projetos</h2>
+        <div class="projetos__grid" role="list">
+          <!-- Cards gerados via JavaScript -->
+        </div>
+        <noscript>
+          <div class="projetos__grid projetos__grid--static" role="list">
+            <div class="projetos__card" role="listitem">
+              <h3 class="projetos__card-title">API REST com Node.js</h3>
+              <p class="projetos__card-description">API completa com autenticação JWT e documentação Swagger</p>
+              <ul class="projetos__card-tech" role="list">
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+            <div class="projetos__card" role="listitem">
+              <h3 class="projetos__card-title">Dashboard Analytics</h3>
+              <p class="projetos__card-description">Painel de visualização de dados com gráficos interativos</p>
+              <ul class="projetos__card-tech" role="list">
+                <li>JavaScript</li>
+                <li>D3.js</li>
+                <li>CSS Grid</li>
+              </ul>
+            </div>
+            <div class="projetos__card" role="listitem">
+              <h3 class="projetos__card-title">Portfolio Site</h3>
+              <p class="projetos__card-description">Site pessoal construído com HTML, CSS e JavaScript puros</p>
+              <ul class="projetos__card-tech" role="list">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+              </ul>
+            </div>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <!-- 
+      Task 8.1: Padrão para adição de imagens otimizadas
+      ====================================================
+      Imagem informativa (abaixo do fold - com lazy loading):
+      <img 
+        class="img-responsive"
+        src="assets/images/projeto-thumb.jpg"
+        srcset="assets/images/projeto-thumb-400w.jpg 400w,
+                assets/images/projeto-thumb-800w.jpg 800w,
+                assets/images/projeto-thumb-1200w.jpg 1200w"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        loading="lazy"
+        width="800"
+        height="600"
+        alt="Screenshot do projeto Dashboard Analytics mostrando gráficos interativos">
+
+      Imagem decorativa (sem conteúdo semântico):
+      <img 
+        class="img-decorative"
+        src="assets/images/bg-pattern.svg"
+        loading="lazy"
+        width="1200"
+        height="400"
+        alt="">
+
+      Notas:
+      - loading="lazy" para imagens abaixo do fold (não usar em hero/above-the-fold)
+      - width/height explícitos para evitar Cumulative Layout Shift (CLS)
+      - alt descritivo com max 125 caracteres para imagens informativas
+      - alt="" para imagens decorativas (screen readers as ignoram)
+      - srcset com versões 400w, 800w, 1200w para diferentes viewports
+      - sizes define qual tamanho usar baseado na viewport
+    -->
+
+    <!-- Task 2.5: Seção Contato -->
+    <section id="contato" class="contato" aria-labelledby="contato-title">
+      <div class="contato__container">
+        <h2 id="contato-title" class="contato__title">Contato</h2>
+        <ul class="contato__links" role="list">
+          <li>
+            <a href="https://github.com/felipejaques" target="_blank" rel="noopener noreferrer" class="contato__link">
+              <svg class="contato__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/felipejaques" target="_blank" rel="noopener noreferrer" class="contato__link">
+              <svg class="contato__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:contato@felipejaques.dev" class="contato__link">
+              <svg class="contato__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <span>Email</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

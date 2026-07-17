@@ -1,0 +1,746 @@
+/* ===========================
+   Design Tokens (CSS Custom Properties)
+   =========================== */
+:root {
+  /* Cores - conformidade WCAG AA */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f9fafb;
+  --color-border: #e5e7eb;
+
+  /* Tipografia */
+  --font-family: system-ui, -apple-system, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+
+  /* Espaçamento */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 6rem;
+
+  /* Layout */
+  --nav-height: 64px;
+  --container-max: 1200px;
+  --breakpoint-mobile: 768px;
+
+  /* Animação */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --scroll-duration: 800ms;
+
+  /* Toque */
+  --min-touch-target: 44px;
+}
+
+/* ===========================
+   CSS Reset / Normalize
+   =========================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* ===========================
+   Estilos Base - Tipografia
+   =========================== */
+h1 {
+  font-size: var(--font-size-3xl);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+h5,
+h6 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* ===========================
+   Estilos Base - Links
+   =========================== */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ===========================
+   Estilos Base - Listas
+   =========================== */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===========================
+   Estilos Base - Utilitários
+   =========================== */
+
+/* Container padrão */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+/* Skip-link para acessibilidade por teclado */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 1000;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-weight: 600;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Seção base */
+section {
+  padding-block: var(--spacing-xl);
+}
+
+/* Foco visível global para elementos interativos */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Acessibilidade - reduzir animações quando solicitado */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===========================
+   Task 3.2: Layout e Componentes
+   =========================== */
+
+/* --- Navegação --- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+}
+
+.nav__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.nav__logo {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  text-decoration: none;
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav__logo:hover {
+  color: var(--color-primary-dark);
+}
+
+.nav__toggle {
+  display: none;
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav__toggle-icon,
+.nav__toggle-icon::before,
+.nav__toggle-icon::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition-normal), opacity var(--transition-normal);
+}
+
+.nav__toggle-icon::before,
+.nav__toggle-icon::after {
+  content: "";
+  position: absolute;
+}
+
+.nav__toggle-icon::before {
+  transform: translateY(-7px);
+}
+
+.nav__toggle-icon::after {
+  transform: translateY(7px);
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.nav__link {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  min-height: var(--min-touch-target);
+  display: flex;
+  align-items: center;
+}
+
+.nav__link:hover {
+  color: var(--color-primary);
+}
+
+.nav__link--active {
+  color: var(--color-primary);
+  font-weight: 600;
+  position: relative;
+}
+
+.nav__link--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: var(--spacing-sm);
+  right: var(--spacing-sm);
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 1px;
+}
+
+/* --- Seção Hero --- */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: var(--spacing-2xl);
+}
+
+.hero__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.hero__title {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text);
+}
+
+.hero__description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: var(--spacing-lg);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--min-touch-target);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.hero__cta:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-bg);
+  transform: translateY(-1px);
+}
+
+.hero__cta:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* --- Seção Sobre --- */
+.sobre {
+  background-color: var(--color-bg-alt);
+  padding-block: var(--spacing-2xl);
+}
+
+.sobre__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.sobre__title {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.sobre__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.sobre__text p {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sobre__skills-title {
+  margin-bottom: var(--spacing-sm);
+}
+
+.sobre__skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.sobre__skills-list li {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--color-text);
+}
+
+/* --- Seção Projetos --- */
+.projetos {
+  padding-block: var(--spacing-2xl);
+}
+
+.projetos__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.projetos__title {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.projetos__card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.projetos__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.projetos__card-title {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.projetos__card-description {
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.9375rem;
+}
+
+.projetos__card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.projetos__card-tech li {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+}
+
+/* --- Seção Contato --- */
+.contato {
+  background-color: var(--color-bg-alt);
+  padding-block: var(--spacing-2xl);
+}
+
+.contato__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.contato__title {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.contato__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.contato__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text);
+  text-decoration: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  min-height: var(--min-touch-target);
+}
+
+.contato__link:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+}
+
+.contato__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.contato__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   Task 8.1: Otimizações de Imagens e Carregamento
+   =========================== */
+
+/* Classe utilitária para imagens responsivas com lazy loading.
+   Uso: <img class="img-responsive" src="..." srcset="..." sizes="..." 
+            loading="lazy" width="..." height="..." alt="..."> */
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  /* Previne layout shift definindo aspect-ratio via width/height do HTML */
+}
+
+/* Imagem decorativa (alt="") - sem impacto semântico */
+.img-decorative {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Container de imagem com aspect-ratio para evitar layout shift */
+.img-container {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.img-container .img-responsive,
+.img-container .img-decorative {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===========================
+   Task 3.3: Estilos Responsivos e Acessibilidade
+   =========================== */
+
+/* --- Foco visível para elementos interativos --- */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* --- Link ativo na navegação (destaque visual) --- */
+.nav__link--active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* --- Media Query: Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+  /* Navegação Mobile */
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__menu {
+    display: none;
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-sm) 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    gap: 0;
+  }
+
+  .nav__menu--open {
+    display: flex;
+  }
+
+  .nav__menu li {
+    width: 100%;
+  }
+
+  .nav__link {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    min-height: var(--min-touch-target);
+    justify-content: flex-start;
+  }
+
+  .nav__link--active::after {
+    display: none;
+  }
+
+  .nav__link--active {
+    background-color: var(--color-bg-alt);
+  }
+
+  /* Hero Mobile */
+  .hero {
+    min-height: auto;
+    padding-block: var(--spacing-xl);
+  }
+
+  .hero__title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero__description {
+    font-size: var(--font-size-base);
+  }
+
+  /* Sobre Mobile - coluna única */
+  .sobre__content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  /* Projetos Mobile - coluna única */
+  .projetos__grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contato Mobile */
+  .contato__links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contato__link {
+    justify-content: center;
+    min-height: var(--min-touch-target);
+  }
+
+  /* Áreas de toque mínimas de 44x44px */
+  .nav__toggle,
+  .nav__link,
+  .hero__cta,
+  .contato__link {
+    min-width: var(--min-touch-target);
+    min-height: var(--min-touch-target);
+  }
+}
+
+/* --- Media Query: Desktop (min-width: 769px) --- */
+@media (min-width: 769px) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__menu {
+    display: flex;
+  }
+
+  .sobre__content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .projetos__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
