@@ -705,15 +705,22 @@ select:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  /* Contato Mobile */
+  /* Contato Mobile - apenas ícones, lado a lado */
   .contato__links {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-sm);
   }
 
   .contato__link {
     justify-content: center;
+    min-width: var(--min-touch-target);
     min-height: var(--min-touch-target);
+    padding: var(--spacing-sm);
+  }
+
+  .contato__link span {
+    display: none;
   }
 
   /* Áreas de toque mínimas de 44x44px */
