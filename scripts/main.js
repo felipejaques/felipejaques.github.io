@@ -371,11 +371,76 @@ function getContrastRatio(color1, color2) {
  */
 
 // ============================================================================
+// TASK: Dark Mode Toggle
+// ============================================================================
+
+/**
+ * Retorna o tema preferido do usuário.
+ * Prioridade: localStorage > preferência do sistema > 'light'
+ * @returns {'light'|'dark'}
+ */
+function getPreferredTheme() {
+  var stored = localStorage.getItem('theme');
+  if (stored === 'dark' || stored === 'light') {
+    return stored;
+  }
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return 'dark';
+  }
+  return 'light';
+}
+
+/**
+ * Aplica o tema no documento e atualiza o aria-label do botão.
+ * @param {'light'|'dark'} theme
+ */
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  var toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.setAttribute(
+      'aria-label',
+      theme === 'dark' ? 'Alternar tema claro' : 'Alternar tema escuro'
+    );
+  }
+}
+
+/**
+ * Inicializa o dark mode: aplica tema salvo e configura o botão toggle.
+ */
+function initDarkMode() {
+  var theme = getPreferredTheme();
+  applyTheme(theme);
+
+  var toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme') || 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+  }
+
+  // Reage a mudanças na preferência do sistema (caso o usuário não tenha salvo manualmente)
+  if (window.matchMedia) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+      if (!localStorage.getItem('theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
+}
+
+// ============================================================================
 // INITIALIZATION
 // ============================================================================
 
 if (typeof document !== 'undefined') {
 document.addEventListener('DOMContentLoaded', function () {
+  // Dark mode (inicializar primeiro para evitar flash de tema errado)
+  initDarkMode();
+
   // Task 5.1: Render projects
   var grid = document.querySelector('.projetos__grid');
   if (grid) {
@@ -409,6 +474,9 @@ if (typeof module !== 'undefined') {
     renderProjects: renderProjects,
     projects: projects,
     getRelativeLuminance: getRelativeLuminance,
-    getContrastRatio: getContrastRatio
+    getContrastRatio: getContrastRatio,
+    getPreferredTheme: getPreferredTheme,
+    applyTheme: applyTheme,
+    initDarkMode: initDarkMode
   };
 }
