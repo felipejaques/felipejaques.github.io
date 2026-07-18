@@ -10,22 +10,22 @@
 
 const projects = [
   {
-    title: "API REST com Node.js",
-    description: "API completa com autenticação JWT e documentação Swagger",
-    technologies: ["Node.js", "Express", "MongoDB"],
-    url: "https://github.com/felipejaques/api-rest"
+    title: "Aplicativo de Finanças Pessoais",
+    description: "Aplicativo móvel em flutter para controle de finanças pessoais",
+    technologies: ["Flutter", "Java", "PostgresQL"],
+    url: "https://github.com/felipejaques/person-finance-mobile"
   },
   {
-    title: "Dashboard Analytics",
-    description: "Painel de visualização de dados com gráficos interativos",
-    technologies: ["JavaScript", "D3.js", "CSS Grid"],
-    url: null
+    title: "Raspberry Awards",
+    description: "Uma aplicação Angular para visualizar informações sobre os vencedores do Golden Raspberry Awards, permitindo aos usuários consultar estatísticas, filtrar filmes por ano e visualizar produtores com múltiplos prêmios.",
+    technologies: ["Angular", "Java", "Spring Boot", "PostgresQL"],
+    url: "https://github.com/felipejaquesraspberry-awards-front-end"
   },
   {
-    title: "Portfolio Site",
-    description: "Site pessoal construído com HTML, CSS e JavaScript puros",
-    technologies: ["HTML", "CSS", "JavaScript"],
-    url: "https://github.com/felipejaques/felipejaques.github.io"
+    title: "API REST - Recepção Hotel",
+    description: "API REST para a gestão da recepção hoteleira, contemplando controle de reservas, check-in e check-out, cadastro de hóspedes.",
+    technologies: ["Java", "Spring Boot", "PostgresQL"],
+    url: "https://github.com/felipejaques/CRUD---hotel-reception"
   }
 ];
 
