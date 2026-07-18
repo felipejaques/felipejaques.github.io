@@ -16,16 +16,34 @@ const projects = [
     url: "https://github.com/felipejaques/person-finance-mobile"
   },
   {
+    title: "Dashboard de Finanças Pessoais",
+    description: "Projeto em angular para controle de finanças pessoais",
+    technologies: ["Angular", "TypeScript", "Java", "PostgresQL"],
+    url: "https://github.com/felipejaques/person-finance-front-end"
+  },
+  {
     title: "Raspberry Awards",
     description: "Uma aplicação Angular para visualizar informações sobre os vencedores do Golden Raspberry Awards, permitindo aos usuários consultar estatísticas, filtrar filmes por ano e visualizar produtores com múltiplos prêmios.",
     technologies: ["Angular", "Java", "Spring Boot", "PostgresQL"],
-    url: "https://github.com/felipejaquesraspberry-awards-front-end"
+    url: "https://github.com/felipejaques/raspberry-awards-front-end"
   },
   {
     title: "API REST - Recepção Hotel",
     description: "API REST para a gestão da recepção hoteleira, contemplando controle de reservas, check-in e check-out, cadastro de hóspedes.",
     technologies: ["Java", "Spring Boot", "PostgresQL"],
     url: "https://github.com/felipejaques/CRUD---hotel-reception"
+  },
+  {
+    title: "Comparador Salarial",
+    description: "Aplicação web para comparar, lado a lado, o pacote de remuneração do seu emprego atual com uma outra proposta.",
+    technologies: ["JavaScript", "HTML", "CSS"],
+    url: "https://github.com/felipejaques/CRUD---hotel-reception"
+  },
+  {
+    title: "Componente de Mapa - OpenStreetMap",
+    description: "Aplicativo em angular do componente de mapa do OpenStreetMap",
+    technologies: ["Angular", "TypeScript", "HTML", "CSS"],
+    url: "https://github.com/felipejaques/map-component"
   }
 ];
 
