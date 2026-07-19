@@ -37,14 +37,20 @@ const projects = [
     title: "Comparador Salarial",
     description: "Aplicação web para comparar, lado a lado, o pacote de remuneração do seu emprego atual com uma outra proposta.",
     technologies: ["JavaScript", "HTML", "CSS"],
-    url: "https://github.com/felipejaques/CRUD---hotel-reception"
+    url: "https://felipejaques.github.io/salary-comparer/"
   },
   {
-    title: "Componente de Mapa - OpenStreetMap",
-    description: "Aplicativo em angular do componente de mapa do OpenStreetMap",
-    technologies: ["Angular", "TypeScript", "HTML", "CSS"],
-    url: "https://github.com/felipejaques/map-component"
+    title: "🕒 Conversor de Horas para Decimal",
+    description: "Aplicação web para converter o formato de horas para valores decimais.",
+    technologies: ["JavaScript", "HTML", "CSS"],
+    url: "https://felipejaques.github.io/convert-hours-to-decimal/"
   }
+  // {
+  //   title: "Componente de Mapa - OpenStreetMap",
+  //   description: "Aplicativo em angular do componente de mapa do OpenStreetMap",
+  //   technologies: ["Angular", "TypeScript", "HTML", "CSS"],
+  //   url: "https://github.com/felipejaques/map-component"
+  // }
 ];
 
 // ============================================================================
