@@ -34,7 +34,7 @@ const projects = [
     url: "https://github.com/felipejaques/CRUD---hotel-reception"
   },
   {
-    title: "Comparador Salarial",
+    title: "Comparador Salarial 💸",
     description: "Aplicação web para comparar, lado a lado, o pacote de remuneração do seu emprego atual com uma outra proposta.",
     technologies: ["JavaScript", "HTML", "CSS"],
     url: "https://felipejaques.github.io/salary-comparer/"
