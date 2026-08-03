@@ -22,22 +22,22 @@ const projects = [
     url: "https://github.com/felipejaques/person-finance-front-end"
   },
   {
+    title: "Alerta BR",
+    description: "Plataforma web que cruza dados geográficos, demográficos e climáticos em tempo real para antecipar e mitigar impactos de fenômenos como El Niño, oferecendo mapas de risco interativos, alertas automáticos e relatórios preditivos para todo o território nacional.",
+    technologies: ["Next.js 14", "TypeScript", "Python", "FastAPI", "PostgresQL", "Docker"],
+    url: "https://github.com/felipejaques/alertabr"
+  },
+  {
     title: "Raspberry Awards",
     description: "Uma aplicação Angular para visualizar informações sobre os vencedores do Golden Raspberry Awards, permitindo aos usuários consultar estatísticas, filtrar filmes por ano e visualizar produtores com múltiplos prêmios.",
     technologies: ["Angular", "Java", "Spring Boot", "PostgresQL"],
     url: "https://github.com/felipejaques/raspberry-awards-front-end"
   },
   {
-    title: "API REST - Recepção Hotel",
+    title: "Recepção Hotel",
     description: "API REST para a gestão da recepção hoteleira, contemplando controle de reservas, check-in e check-out, cadastro de hóspedes.",
-    technologies: ["Java", "Spring Boot", "PostgresQL"],
+    technologies: ["Java", "API REST", "Spring Boot", "PostgresQL"],
     url: "https://github.com/felipejaques/CRUD---hotel-reception"
-  },
-  {
-    title: "Comparador Salarial 💸",
-    description: "Aplicação web para comparar, lado a lado, o pacote de remuneração do seu emprego atual com uma outra proposta.",
-    technologies: ["JavaScript", "HTML", "CSS"],
-    url: "https://felipejaques.github.io/salary-comparer/"
   },
   {
     title: "🕒 Conversor de Horas para Decimal",
