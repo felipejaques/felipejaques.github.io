@@ -540,6 +540,103 @@ section {
   color: var(--color-text);
 }
 
+/* --- Seções Formação e Experiência --- */
+.formacao,
+.experiencia {
+  padding-block: var(--spacing-2xl);
+}
+
+.formacao {
+  background-color: var(--color-bg);
+}
+
+.experiencia {
+  background-color: var(--color-bg-alt);
+}
+
+.formacao__container,
+.experiencia__container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--spacing-md);
+}
+
+.formacao__title,
+.experiencia__title {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.formacao__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.formacao__item,
+.experiencia__content {
+  padding: var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-bg-alt);
+}
+
+.formacao__item-title,
+.experiencia__item-title {
+  margin-block: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+.formacao__periodo,
+.experiencia__periodo {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.formacao__item-description,
+.experiencia__item-description {
+  color: var(--color-text-light);
+}
+
+.experiencia__timeline {
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.experiencia__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: var(--spacing-md);
+}
+
+.experiencia__marker {
+  width: 12px;
+  height: 12px;
+  margin-top: var(--spacing-lg);
+  border: 3px solid var(--color-bg-alt);
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.experiencia__technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-md);
+}
+
+.experiencia__technologies li {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-light);
+  font-size: 0.8125rem;
+}
+
 /* --- Seção Projetos --- */
 .projetos {
   padding-block: var(--spacing-2xl);
@@ -778,6 +875,10 @@ select:focus-visible {
   .sobre__content {
     grid-template-columns: 1fr;
     gap: var(--spacing-lg);
+  }
+
+  .formacao__grid {
+    grid-template-columns: 1fr;
   }
 
   /* Projetos Mobile - coluna única */

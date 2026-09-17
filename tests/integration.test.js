@@ -16,12 +16,12 @@ describe('Task 9.1: Integração final e validação de requisitos', () => {
     doc = new DOMParser().parseFromString(html, 'text/html');
   });
 
-  describe('Requisito 1.5: Ordem das seções (Hero → Sobre → Projetos → Contato)', () => {
+  describe('Requisito 1.5: Ordem das seções do portfólio', () => {
     it('deve exibir as seções na ordem correta', () => {
       const sections = doc.querySelectorAll('main > section[id]');
       const sectionIds = Array.from(sections).map(s => s.id);
       
-      expect(sectionIds).toEqual(['hero', 'sobre', 'projetos', 'contato']);
+      expect(sectionIds).toEqual(['hero', 'sobre', 'formacao', 'experiencia', 'projetos', 'contato']);
     });
 
     it('hero deve ser a primeira seção dentro de main', () => {
@@ -37,19 +37,21 @@ describe('Task 9.1: Integração final e validação de requisitos', () => {
   });
 
   describe('Requisito 2.1: Navegação contém links para todas as seções', () => {
-    it('deve ter links para hero, sobre, projetos e contato', () => {
+    it('deve ter links para todas as seções', () => {
       const navLinks = doc.querySelectorAll('.nav__link');
       const hrefs = Array.from(navLinks).map(l => l.getAttribute('href'));
       
       expect(hrefs).toContain('#hero');
       expect(hrefs).toContain('#sobre');
+      expect(hrefs).toContain('#formacao');
+      expect(hrefs).toContain('#experiencia');
       expect(hrefs).toContain('#projetos');
       expect(hrefs).toContain('#contato');
     });
 
-    it('deve ter exatamente 4 links na navegação', () => {
+    it('deve ter exatamente 6 links na navegação', () => {
       const navLinks = doc.querySelectorAll('.nav__link');
-      expect(navLinks.length).toBe(4);
+      expect(navLinks.length).toBe(6);
     });
   });
 
