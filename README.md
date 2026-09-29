@@ -1,32 +1,43 @@
-# React + TypeScript + Vite
+# Portfólio | Felipe Jaques
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Portfólio pessoal de Felipe Jaques, desenvolvedor de software full stack. O site reúne projetos, experiência profissional e formas de contato.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19 e TypeScript
+- Vite 6
+- Framer Motion
+- Lucide React
+- Oxlint
+
+## Requisitos
+
+- Node.js 22 ou compatível
+- npm (o projeto inclui `package-lock.json`)
 
 ## React Compiler
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the Oxlint configuration
+## Comandos disponíveis
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm run dev      # Inicia o servidor de desenvolvimento
+npm run build    # Verifica os tipos e gera a versão de produção em dist/
+npm run preview  # Serve localmente o build de produção
+npm run lint     # Executa o Oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Para testar a versão de produção localmente:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Estrutura principal
+
+- `src/`: aplicação React, estilos e componentes
+- `public/`: arquivos estáticos copiados para o build
+- `dist/`: arquivos gerados por `npm run build` (não versionados)
+- `.github/workflows/deploy.yml`: automação de build e publicação
