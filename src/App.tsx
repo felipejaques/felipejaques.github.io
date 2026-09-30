@@ -22,7 +22,7 @@ const projects: Project[] = [
   { number: '03', title: 'Dashboard financeiro', description: 'Painel web para visualizar e organizar dados de finanças pessoais em uma experiência simples.', stack: ['Angular', 'TypeScript', 'Java', 'PostgreSQL'], url: 'https://github.com/felipejaques/person-finance-front-end', category: 'Web' },
   { number: '04', title: 'Raspberry Awards', description: 'Consulta de vencedores do Golden Raspberry Awards, com filtros por ano e estatísticas de premiações.', stack: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'], url: 'https://github.com/felipejaques/raspberry-awards-front-end', category: 'Web' },
   { number: '05', title: 'Recepção de hotel', description: 'API para gestão de reservas, check-in, check-out e cadastro de hóspedes.', stack: ['Java', 'Spring Boot', 'REST', 'PostgreSQL'], url: 'https://github.com/felipejaques/CRUD---hotel-reception', category: 'APIs' },
-  { number: '06', title: 'Horas em decimal', description: 'Ferramenta web direta para converter horas e minutos em valores decimais.', stack: ['JavaScript', 'HTML', 'CSS'], url: 'https://felipejaques.github.io/convert-hours-to-decimal/', category: 'Web' },
+  { number: '06', title: 'HomeLab', description: 'Servidor doméstico com Linux (Armbian) e CasaOS para orquestrar containers Docker, centralizando mídia, downloads, serviços de rede e hospedagem de projetos pessoais.', stack: ['Linux', 'Armbian', 'CasaOS', 'Docker'], url: 'https://www.linkedin.com/pulse/transformei-uma-tv-box-antigo-em-um-mini-servidor-com-felipe-jaques-whbcf', category: 'Web' },
 ]
 
 const skillGroups = [
