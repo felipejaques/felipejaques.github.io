@@ -1,4 +1,4 @@
-import { useEffect, useState, type PointerEvent } from 'react'
+import { useEffect, useRef, useState, type PointerEvent } from 'react'
 import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from 'framer-motion'
 import {
   ArrowDown, ArrowRight, ArrowUpRight, BriefcaseBusiness, Code2,
@@ -37,19 +37,30 @@ const education = [
   { period: 'Formação complementar', place: 'Cursos e estudos contínuos', detail: 'Spring Boot, JavaScript ES6, UI Design e Flutter' },
 ]
 
-function initialTheme(): 'light' | 'dark' {
-  if (typeof window === 'undefined') return 'light'
+type Theme = 'light' | 'dark'
+const themeStorageKey = 'portfolio-theme'
+const darkSchemeQuery = '(prefers-color-scheme: dark)'
+
+function savedTheme(): Theme | null {
   try {
-    const saved = window.localStorage.getItem('portfolio-theme')
-    if (saved === 'light' || saved === 'dark') return saved
+    const saved = window.localStorage.getItem(themeStorageKey)
+    return saved === 'light' || saved === 'dark' ? saved : null
   } catch {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    return null
   }
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
+
+function systemTheme(): Theme {
+  return window.matchMedia(darkSchemeQuery).matches ? 'dark' : 'light'
+}
+
+function initialTheme(): Theme {
+  if (typeof window === 'undefined') return 'light'
+  return savedTheme() ?? systemTheme()
 }
 
 function App() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(initialTheme)
+  const [theme, setTheme] = useState<Theme>(initialTheme)
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('sobre')
   const [category, setCategory] = useState<'Todos' | Category>('Todos')
@@ -59,10 +70,26 @@ function App() {
   const springTiltX = useSpring(pointerTiltX, { stiffness: 150, damping: 18 })
   const springTiltY = useSpring(pointerTiltY, { stiffness: 150, damping: 18 })
 
+  const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const mobileNavRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    try { window.localStorage.setItem('portfolio-theme', theme) } catch { /* Storage is optional. */ }
   }, [theme])
+
+  // Follow the OS theme until the visitor picks one explicitly.
+  useEffect(() => {
+    const media = window.matchMedia(darkSchemeQuery)
+    const followSystem = () => { if (!savedTheme()) setTheme(systemTheme()) }
+    media.addEventListener('change', followSystem)
+    return () => media.removeEventListener('change', followSystem)
+  }, [])
+
+  const toggleTheme = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setTheme(next)
+    try { window.localStorage.setItem(themeStorageKey, next) } catch { /* Storage is optional. */ }
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -78,7 +105,12 @@ function App() {
 
   useEffect(() => {
     if (!menuOpen) return
-    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === 'Escape') setMenuOpen(false) }
+    mobileNavRef.current?.querySelector('a')?.focus()
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      setMenuOpen(false)
+      menuButtonRef.current?.focus()
+    }
     window.addEventListener('keydown', closeOnEscape)
     return () => window.removeEventListener('keydown', closeOnEscape)
   }, [menuOpen])
@@ -111,10 +143,12 @@ function App() {
         {navItems.map((item) => <a key={item.id} href={`#${item.id}`} className={activeSection === item.id ? 'nav-link is-active' : 'nav-link'} aria-current={activeSection === item.id ? 'location' : undefined} onClick={() => setMenuOpen(false)}>{item.label}</a>)}
       </nav>
       <div className="header-actions">
-        <button className="icon-button" type="button" aria-label={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'} title={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'} onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}</button>
-        <button className="icon-button menu-button" type="button" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
+        <button className="icon-button" type="button" aria-label={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'} title={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'} onClick={toggleTheme}>{theme === 'dark' ? <Sun size={19} /> : <Moon size={19} />}</button>
+        <button ref={menuButtonRef} className="icon-button menu-button" type="button" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
       </div>
     </header>
+    <div className={`mobile-nav-backdrop${menuOpen ? ' is-visible' : ''}`} aria-hidden="true" onClick={() => setMenuOpen(false)} />
+    <div className={`mobile-nav-panel${menuOpen ? ' is-open' : ''}`} ref={mobileNavRef} id="mobile-navigation" aria-hidden={!menuOpen}>{navItems.map((item, index) => <motion.a key={item.id} href={`#${item.id}`} initial={reducedMotion ? false : { opacity: 0, x: 12 }} animate={{ opacity: menuOpen ? 1 : 0, x: menuOpen ? 0 : 12 }} transition={{ delay: menuOpen ? index * 0.04 : 0 }} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>{item.label}<ArrowUpRight size={17} aria-hidden="true" /></motion.a>)}</div>
 
     <main id="conteudo">
       <section className="hero section-shell" id="inicio" aria-labelledby="hero-title">
@@ -157,7 +191,7 @@ function App() {
 
       <section className="projects-section section-shell" id="projetos" aria-labelledby="projects-title">
         <motion.div className="section-heading section-heading-row projects-heading" {...reveal()}><div><p className="eyebrow"><span>04</span> Seleção de trabalhos</p><h2 id="projects-title">Projetos com <em>propósito.</em></h2></div><a className="text-link github-link" href="https://github.com/felipejaques" target="_blank" rel="noopener noreferrer">Mais no GitHub <ArrowUpRight size={16} aria-hidden="true" /></a></motion.div>
-        <div className="project-toolbar"><p>{String(shownProjects.length).padStart(2, '0')} projetos</p><div className="filter-group" role="group" aria-label="Filtrar projetos por categoria">{(['Todos', 'Web', 'Aplicativos', 'APIs'] as const).map((filter) => <button key={filter} className={category === filter ? 'filter-button is-selected' : 'filter-button'} type="button" aria-pressed={category === filter} onClick={() => setCategory(filter)}>{filter}</button>)}</div></div>
+        <div className="project-toolbar"><p>{String(shownProjects.length).padStart(2, '0')} {shownProjects.length === 1 ? 'projeto' : 'projetos'}</p><div className="filter-group" role="group" aria-label="Filtrar projetos por categoria">{(['Todos', 'Web', 'Aplicativos', 'APIs'] as const).map((filter) => <button key={filter} className={category === filter ? 'filter-button is-selected' : 'filter-button'} type="button" aria-pressed={category === filter} onClick={() => setCategory(filter)}>{filter}</button>)}</div></div>
         <motion.div className="project-list" layout><AnimatePresence mode="popLayout">{shownProjects.map((project) => <motion.article className="project-row" key={project.title} layout initial={reducedMotion ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={reducedMotion ? undefined : { opacity: 0, y: -8 }} transition={{ duration: 0.25 }}><span className="project-number">{project.number}</span><div className="project-main"><div className="project-title-line"><h3>{project.title}</h3><span className="project-category">{project.category}</span></div><p>{project.description}</p><ul className="tag-list">{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul></div><a className="project-open" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${project.title} em nova aba`}><ArrowUpRight size={21} aria-hidden="true" /></a></motion.article>)}</AnimatePresence></motion.div>
       </section>
 
@@ -168,8 +202,6 @@ function App() {
     </main>
 
     <footer className="site-footer section-shell"><a className="wordmark footer-mark" href="#inicio" aria-label="Voltar ao início">fj<span>.</span></a><p>Feito por Felipe Jaques · {new Date().getFullYear()}</p><a className="back-top" href="#inicio">Voltar ao topo <ArrowRight size={15} /></a></footer>
-    <div className={`mobile-nav-backdrop${menuOpen ? ' is-visible' : ''}`} aria-hidden="true" onClick={() => setMenuOpen(false)} />
-    <div className={`mobile-nav-panel${menuOpen ? ' is-open' : ''}`} id="mobile-navigation" aria-hidden={!menuOpen}>{navItems.map((item, index) => <motion.a key={item.id} href={`#${item.id}`} initial={reducedMotion ? false : { opacity: 0, x: 12 }} animate={{ opacity: menuOpen ? 1 : 0, x: menuOpen ? 0 : 12 }} transition={{ delay: menuOpen ? index * 0.04 : 0 }} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>{item.label}<ArrowUpRight size={17} aria-hidden="true" /></motion.a>)}</div>
   </>
 }
 
