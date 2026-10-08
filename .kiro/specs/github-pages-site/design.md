@@ -317,15 +317,15 @@ const NAV_SECTIONS = [
 
 **Valida: Requisitos 4.1**
 
-### Propriedade 6: Comportamento de link condicionado à disponibilidade de URL
+### Propriedade 6: Detalhes do projeto em modal
 
-*Para qualquer* objeto Project: se `url` não é null, o card renderizado deve conter um elemento `<a>` com `href` igual a `url` e `target="_blank"`; se `url` é null, o card renderizado não deve conter elemento `<a>` e deve incluir indicação visual de indisponibilidade.
+*Para qualquer* objeto Project: o card deve conter um `<button>` que abre um `<dialog>` modal com o título, os detalhes, as imagens (quando houver) e um `<a>` para cada item de `links` com `target="_blank"`; com `links` vazio, o modal exibe apenas o botão de contato, e `forSale: true` exibe a indicação "Disponível para venda".
 
 **Valida: Requisitos 4.2, 4.3**
 
-### Propriedade 7: Quantidade de projetos exibidos entre 3 e 6
+### Propriedade 7: Quantidade mínima de projetos
 
-*Para qualquer* array de projetos fornecido a `renderProjects`, se o array tem menos de 3 elementos, a função deve lançar erro; se tem mais de 6, deve renderizar apenas os 6 primeiros; o número de cards gerados deve estar sempre no intervalo [3, 6].
+*Para qualquer* array de projetos, a seção deve exibir todos os projetos da categoria selecionada, e o conteúdo deve ter no mínimo 3 projetos.
 
 **Valida: Requisito 4.4**
 

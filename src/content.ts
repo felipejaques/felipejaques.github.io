@@ -16,14 +16,23 @@ export const navItems = [
 export const categories = ['Web', 'Aplicativos', 'APIs', 'Server'] as const
 export type Category = (typeof categories)[number]
 
+export type ProjectLink = { label: string; url: string }
+/** Paths are relative to public/; `thumb` is an optional lighter version for the gallery strip. */
+export type ProjectImage = { src: string; alt: string; thumb?: string }
+
 // Descriptions must stay within 150 characters (spec requirement 4.1).
+// `details`, `images` and `links` feed the project modal; images live in public/projects/<slug>/.
 export type Project = {
   number: string
   title: string
   description: string
+  details?: string[]
+  images?: ProjectImage[]
   stack: string[]
-  url: string
+  links: ProjectLink[]
   category: Category
+  /** Shows a "disponível para venda" badge and turns the contact button into a purchase inquiry. */
+  forSale?: boolean
 }
 
 export const projects: Project[] = [
@@ -32,7 +41,16 @@ export const projects: Project[] = [
     title: 'Alerta BR',
     description: 'Plataforma que cruza dados geográficos, demográficos e climáticos para antecipar riscos e apoiar decisões em todo o território nacional.',
     stack: ['Next.js', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL'],
-    url: 'https://github.com/felipejaques/alertabr',
+    details: [
+      'Plataforma de prevenção a desastres naturais que monitora riscos climáticos em todo o Brasil, combinando dados geográficos, demográficos e meteorológicos em um índice de risco composto por município.',
+      'O dashboard traz um mapa interativo com camadas de risco, precipitação e temperatura, além de alertas automáticos. Os relatórios mostram precipitação diária e acumulada e a evolução do índice de risco em janelas de 7, 30 e 90 dias. Há ainda simulações de cenários de impacto, como El Niño e La Niña.',
+    ],
+    images: [
+      { src: 'projects/alertabr/inicio.jpg', thumb: 'projects/alertabr/inicio-thumb.jpg', alt: 'Tela inicial do AlertaBR com acesso a Dashboard, Relatórios e Cenários' },
+      { src: 'projects/alertabr/mapa-de-risco.jpg', thumb: 'projects/alertabr/mapa-de-risco-thumb.jpg', alt: 'Mapa de Santa Catarina com o índice de risco por município e lista lateral de municípios' },
+      { src: 'projects/alertabr/relatorios.jpg', thumb: 'projects/alertabr/relatorios-thumb.jpg', alt: 'Relatórios de Blumenau com gráficos de precipitação diária, acumulada e evolução do índice de risco' },
+    ],
+    links: [{ label: 'Repositório', url: 'https://github.com/felipejaques/alertabr' }],
     category: 'Web',
   },
   {
@@ -40,7 +58,14 @@ export const projects: Project[] = [
     title: 'Finanças pessoais',
     description: 'Aplicativo mobile para acompanhar receitas, despesas e a vida financeira no dia a dia.',
     stack: ['Flutter', 'Java', 'PostgreSQL'],
-    url: 'https://github.com/felipejaques/person-finance-mobile',
+    details: [
+      'Aplicativo para organizar as finanças de forma prática: cadastro de contas bancárias e cartões de crédito, lançamento de receitas e despesas e transferências entre contas, com tags e observações para manter tudo em ordem.',
+      'Um dashboard financeiro dá uma visão clara do saldo, das faturas em aberto e da evolução dos gastos. O projeto ainda está em desenvolvimento, com novas funcionalidades a caminho.',
+    ],
+    images: [
+      { src: 'projects/financas-pessoais/visao-geral.jpg', alt: 'Telas do aplicativo de finanças pessoais no celular, com saldo e transferência, e o dashboard web no notebook' },
+    ],
+    links: [{ label: 'Repositório', url: 'https://github.com/felipejaques/person-finance-mobile' }],
     category: 'Aplicativos',
   },
   {
@@ -48,7 +73,7 @@ export const projects: Project[] = [
     title: 'Dashboard financeiro',
     description: 'Painel web para visualizar e organizar dados de finanças pessoais em uma experiência simples.',
     stack: ['Angular', 'TypeScript', 'Java', 'PostgreSQL'],
-    url: 'https://github.com/felipejaques/person-finance-front-end',
+    links: [{ label: 'Repositório', url: 'https://github.com/felipejaques/person-finance-front-end' }],
     category: 'Web',
   },
   {
@@ -56,7 +81,7 @@ export const projects: Project[] = [
     title: 'Raspberry Awards',
     description: 'Consulta de vencedores do Golden Raspberry Awards, com filtros por ano e estatísticas de premiações.',
     stack: ['Angular', 'Java', 'Spring Boot', 'PostgreSQL'],
-    url: 'https://github.com/felipejaques/raspberry-awards-front-end',
+    links: [{ label: 'Repositório', url: 'https://github.com/felipejaques/raspberry-awards-front-end' }],
     category: 'Web',
   },
   {
@@ -64,15 +89,22 @@ export const projects: Project[] = [
     title: 'Recepção de hotel',
     description: 'API para gestão de reservas, check-in, check-out e cadastro de hóspedes.',
     stack: ['Java', 'Spring Boot', 'REST', 'PostgreSQL'],
-    url: 'https://github.com/felipejaques/CRUD---hotel-reception',
+    links: [{ label: 'Repositório', url: 'https://github.com/felipejaques/CRUD---hotel-reception' }],
     category: 'APIs',
   },
   {
     number: '06',
     title: 'HomeLab',
     description: 'Servidor doméstico com Armbian e CasaOS que orquestra containers Docker para mídia, downloads, serviços de rede e hospedagem de projetos pessoais.',
+    details: [
+      'Uma TV Box antiga ganhou uma segunda vida como mini servidor doméstico: com Armbian instalado no lugar do sistema original, o aparelho passou a rodar o CasaOS para gerenciar containers Docker.',
+      'Hoje ele concentra serviços de mídia, downloads e rede, além de hospedar projetos pessoais, tudo com baixo consumo de energia. O passo a passo completo está no artigo publicado no LinkedIn.',
+    ],
+    images: [
+      { src: 'projects/homelab/servidor.webp', alt: 'TV Box com a etiqueta "Servidor" na mão, em frente a um monitor exibindo o boot do Armbian' },
+    ],
     stack: ['Linux', 'Armbian', 'CasaOS', 'Docker'],
-    url: 'https://www.linkedin.com/pulse/transformei-uma-tv-box-antigo-em-um-mini-servidor-com-felipe-jaques-whbcf',
+    links: [{ label: 'Artigo no LinkedIn', url: 'https://www.linkedin.com/pulse/transformei-uma-tv-box-antigo-em-um-mini-servidor-com-felipe-jaques-whbcf' }],
     category: 'Server',
   },
 ]

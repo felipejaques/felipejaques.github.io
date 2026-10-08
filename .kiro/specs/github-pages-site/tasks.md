@@ -143,13 +143,13 @@ Implementação de um site portfólio pessoal estático usando HTML, CSS e JavaS
     - **Valida: Requisito 4.1**
 
   - [ ]* 7.7 Escrever teste de propriedade para comportamento condicional de links
-    - **Propriedade 6: Comportamento de link condicionado à disponibilidade de URL**
-    - Gerar projetos com url null e não-null; validar presença/ausência de `<a>` com atributos corretos
+    - **Propriedade 6: Detalhes do projeto em modal**
+    - Gerar projetos com e sem `links`, `images` e `forSale`; validar o conteúdo do modal e os atributos dos links
     - **Valida: Requisitos 4.2, 4.3**
 
   - [ ]* 7.8 Escrever teste de propriedade para quantidade de projetos
-    - **Propriedade 7: Quantidade de projetos exibidos entre 3 e 6**
-    - Gerar arrays de 0 a 10 projetos; validar erro para < 3 e exibição de no máximo 6 cards
+    - **Propriedade 7: Quantidade mínima de projetos**
+    - Gerar arrays de projetos; validar que todos os projetos da categoria selecionada são exibidos
     - **Valida: Requisito 4.4**
 
   - [ ]* 7.9 Escrever teste de propriedade para links externos com segurança

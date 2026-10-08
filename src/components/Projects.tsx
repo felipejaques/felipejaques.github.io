@@ -1,13 +1,18 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
-import { categories, contact, projects, type Category } from '../content'
+import { ArrowUpRight, Plus } from 'lucide-react'
+import { categories, contact, projects, type Category, type Project } from '../content'
 import { useReveal } from '../motion'
+import { ProjectModal } from './ProjectModal'
 
 const filters = ['Todos', ...categories] as const
 
 export function Projects() {
   const [category, setCategory] = useState<'Todos' | Category>('Todos')
+  const [selected, setSelected] = useState<Project | null>(null)
+  // The browser only restores focus after a <dialog> closes if focus was still inside it; a backdrop click
+  // moves focus to <body> first, so we hand focus back to the button that opened the modal ourselves.
+  const trigger = useRef<HTMLButtonElement | null>(null)
   const reducedMotion = useReducedMotion()
   const reveal = useReveal()
   const shownProjects = category === 'Todos' ? projects : projects.filter((project) => project.category === category)
@@ -62,13 +67,30 @@ export function Projects() {
                 <p>{project.description}</p>
                 <ul className="tag-list">{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
               </div>
-              <a className="project-open" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir ${project.title} em nova aba`}>
-                <ArrowUpRight size={21} aria-hidden="true" />
-              </a>
+              <button
+                className="project-open"
+                type="button"
+                aria-haspopup="dialog"
+                aria-label={`Ver detalhes de ${project.title}`}
+                onClick={(event) => {
+                  trigger.current = event.currentTarget
+                  setSelected(project)
+                }}
+              >
+                <Plus size={21} aria-hidden="true" />
+              </button>
             </m.article>
           ))}
         </AnimatePresence>
       </m.div>
+
+      <ProjectModal
+        project={selected}
+        onClose={() => {
+          setSelected(null)
+          trigger.current?.focus({ preventScroll: true })
+        }}
+      />
     </section>
   )
 }

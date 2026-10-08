@@ -761,7 +761,9 @@
   gap: 6px;
 }
 
-.project-main .tag-list li {
+.project-main .tag-list li,
+
+.project-modal .tag-list li {
   border: 0;
   background: var(--paper);
   font-size: 9px;
@@ -783,10 +785,163 @@
 }
 
 .project-open:hover {
-  transform: rotate(45deg);
+  transform: rotate(90deg);
   background: var(--green);
   border-color: var(--green);
   color: var(--on-green);
+}
+
+button.project-open {
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Keep the scrollbar's space reserved so locking scroll under the modal doesn't shift the page sideways. */
+html {
+  scrollbar-gutter: stable;
+}
+
+html:has(.project-modal[open]) {
+  overflow: hidden;
+}
+
+.project-modal {
+  width: min(760px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--canvas);
+  color: var(--ink);
+  box-shadow: 0 24px 70px rgba(18, 28, 22, .28);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.project-modal[open] {
+  animation: project-modal-in .25s ease-out;
+}
+
+.project-modal::backdrop {
+  background: rgba(18, 28, 22, .55);
+  backdrop-filter: blur(4px);
+}
+
+@keyframes project-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.project-modal-body {
+  padding: 30px 34px 34px;
+}
+
+.project-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.project-modal-header .eyebrow {
+  margin-bottom: 8px;
+}
+
+.project-modal-header h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.project-sale {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 9px;
+  background: var(--coral);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.project-modal-close {
+  flex-shrink: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.project-gallery {
+  margin-bottom: 24px;
+}
+
+.project-gallery-main {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.project-gallery-thumbs {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+}
+
+.project-gallery-thumbs button {
+  width: 76px;
+  padding: 0;
+  border: 2px solid transparent;
+  background: none;
+  opacity: .6;
+  cursor: pointer;
+  transition: opacity .2s, border-color .2s;
+}
+
+.project-gallery-thumbs button:hover,
+
+.project-gallery-thumbs button.is-selected {
+  opacity: 1;
+}
+
+.project-gallery-thumbs button.is-selected {
+  border-color: var(--green);
+}
+
+.project-gallery-thumbs img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-modal-text p {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.project-modal .tag-list {
+  margin-top: 18px;
+}
+
+.project-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 26px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
 .contact-section {
@@ -1209,6 +1364,18 @@
   }
   .project-main .tag-list {
     gap: 4px;
+  }
+  .project-modal-body {
+    padding: 20px 18px 24px;
+  }
+  .project-modal-header h2 {
+    font-size: 23px;
+  }
+  .project-modal-text p {
+    font-size: 13px;
+  }
+  .project-modal-actions .button {
+    width: 100%;
   }
   .project-main .tag-list li {
     font-size: 8px;

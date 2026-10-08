@@ -60,9 +60,9 @@ Este documento define os requisitos para o site pessoal GitHub Pages (felipejaqu
 #### Critérios de Aceitação
 
 1. THE Seção_Projetos SHALL exibir cada projeto com título, descrição de no máximo 150 caracteres e no mínimo 1 tecnologia utilizada
-2. WHEN o Visitante clicar em um projeto, THE Site SHALL abrir o link do repositório ou demo em uma nova aba
-3. IF o link do projeto não estiver disponível, THEN THE Site SHALL exibir o projeto sem link clicável e com indicação visual de que o link está indisponível
-4. THE Seção_Projetos SHALL exibir no mínimo 3 e no máximo 6 projetos
+2. WHEN o Visitante acionar o botão de detalhes de um projeto, THE Site SHALL abrir um modal acessível com descrição detalhada, imagens (quando houver), tecnologias, botão de contato e os links do projeto (repositório, demo ou artigo), que abrem em uma nova aba
+3. IF o projeto não tiver links públicos (por exemplo, um produto disponível para venda), THEN o modal SHALL exibir apenas o botão de contato, e projetos à venda SHALL exibir a indicação "Disponível para venda"
+4. THE Seção_Projetos SHALL exibir no mínimo 3 projetos, com filtro por categoria
 
 ### Requisito 5: Performance e Acessibilidade
 
