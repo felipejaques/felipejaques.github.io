@@ -12,12 +12,8 @@ Portfólio pessoal de Felipe Jaques, desenvolvedor de software full stack. O sit
 
 ## Requisitos
 
-- Node.js 22 ou compatível
+- Node.js 22 (versão em `.nvmrc`, usada também pela CI; mínimo 20)
 - npm (o projeto inclui `package-lock.json`)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
 ## Comandos disponíveis
 
@@ -37,7 +33,10 @@ npm run preview
 
 ## Estrutura principal
 
-- `src/`: aplicação React, estilos e componentes
-- `public/`: arquivos estáticos copiados para o build
+- `src/content.ts`: textos e dados do site (projetos, experiência, formação, habilidades, contato)
+- `src/components/`: uma seção da página por componente (`Header`, `Hero`, `Projects`…)
+- `src/theme.ts`: tema claro/escuro (segue o sistema até o visitante escolher; a escolha fica no `localStorage`)
+- `src/App.css` e `src/index.css`: estilos e variáveis de cor de cada tema
+- `public/`: arquivos estáticos copiados para o build (avatar em WebP, `og-image.jpg` para compartilhamento)
 - `dist/`: arquivos gerados por `npm run build` (não versionados)
-- `.github/workflows/deploy.yml`: automação de build e publicação
+- `.github/workflows/deploy.yml`: a cada push na `main`, roda lint e build e publica no GitHub Pages

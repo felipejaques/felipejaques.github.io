@@ -4,23 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Felipe Jaques | Desenvolvedor de software</title>
     <meta name="description" content="Felipe Jaques, desenvolvedor de software full stack. Projetos, experiência e contato." />
+    <link rel="canonical" href="https://felipejaques.github.io/" />
     <meta name="theme-color" content="#f3f5ee" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://felipejaques.github.io/" />
     <meta property="og:title" content="Felipe Jaques | Desenvolvedor de software" />
     <meta property="og:description" content="Software útil, escalável e confiável. Conheça projetos e trajetória." />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://felipejaques.github.io/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Avatar de Felipe Jaques ao lado do texto Desenvolvedor de software" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+    <!-- The hero portrait is rendered by React; preload it so it does not wait for the JS bundle. -->
+    <link rel="preload" as="image" type="image/webp" href="/felipe-avatar-800.webp" imagesrcset="/felipe-avatar-400.webp 400w, /felipe-avatar-800.webp 800w" imagesizes="(max-width: 768px) 330px, 370px" fetchpriority="high" />
+
+    <!-- Apply the theme before first paint. Keep in sync with src/theme.ts. -->
     <script>
       try {
         const savedTheme = localStorage.getItem('portfolio-theme')
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        document.documentElement.dataset.theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (prefersDark ? 'dark' : 'light')
+        const theme = savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : (prefersDark ? 'dark' : 'light')
+        document.documentElement.dataset.theme = theme
+        if (theme === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#202a23')
       } catch {
         document.documentElement.dataset.theme = 'light'
       }
     </script>
-    <title>Felipe Jaques | Desenvolvedor de software</title>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,394 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Criar estrutura de diretórios e arquivos iniciais": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679228
+      },
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321690834
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321953911
+      }
+    ],
+    "2.1 Implementar componente de Navegação": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679483
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321958622
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322081179
+      }
+    ],
+    "2.2 Implementar Seção Hero": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679601
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321959303
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322082084
+      }
+    ],
+    "2.3 Implementar Seção Sobre": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679733
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321960055
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322083252
+      }
+    ],
+    "2.4 Implementar Seção Projetos": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679805
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321960897
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322084285
+      }
+    ],
+    "2.5 Implementar Seção Contato": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679876
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321961825
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322084877
+      }
+    ],
+    "3.1 Implementar variáveis CSS e estilos base": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321679950
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322096810
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322211902
+      }
+    ],
+    "3.2 Implementar layout e componentes": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680022
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322217082
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322332883
+      }
+    ],
+    "3.3 Implementar estilos responsivos e acessibilidade": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680099
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322217880
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322333654
+      }
+    ],
+    "4. Checkpoint - Validar HTML e CSS": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680174
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322772551
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322851001
+      }
+    ],
+    "5.1 Implementar dados dos projetos e renderização": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680304
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322347941
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322540532
+      }
+    ],
+    "5.2 Implementar navegação com scroll suave": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680392
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322348650
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322541345
+      }
+    ],
+    "5.3 Implementar detecção de seção ativa": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680501
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322349647
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322542153
+      }
+    ],
+    "5.4 Implementar toggle do menu mobile": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680598
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322350421
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322543012
+      }
+    ],
+    "6. Checkpoint - Verificar funcionalidades": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680684
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322773090
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322851968
+      }
+    ],
+    "7.1 Configurar ambiente de testes": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680794
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322548609
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322739473
+      }
+    ],
+    "8.1 Implementar otimizações de imagens e carregamento": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680874
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322868762
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323071065
+      }
+    ],
+    "8.2 Implementar função de cálculo de contraste WCAG": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321680954
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322869945
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323071996
+      }
+    ],
+    "9.1 Integrar todos os componentes e validar requisitos": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321681022
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323078563
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323232699
+      }
+    ],
+    "10. Checkpoint final - Validar tudo funciona corretamente": [
+      {
+        "executionId": "442ea5d1-aefe-4fd1-a604-4b9d9401f797",
+        "chatSessionId": "sess_7eb34109-9f72-4e21-9d94-904611bc7c99",
+        "timestamp": 1784321681098
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323240378
+      },
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323287030
+      }
+    ],
+    "1. Configurar estrutura do projeto e arquivos base": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784321953975
+      }
+    ],
+    "2. Implementar estrutura HTML semântica": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322085038
+      }
+    ],
+    "3. Implementar estilos CSS": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322333742
+      }
+    ],
+    "5. Implementar funcionalidades JavaScript": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322543085
+      }
+    ],
+    "7. Implementar testes de propriedade com fast-check": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784322739589
+      }
+    ],
+    "8. Implementar otimizações de performance e acessibilidade": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323072061
+      }
+    ],
+    "9. Integração final e validação": [
+      {
+        "executionId": "65692f02-c002-40e4-ab05-a5fcc7d2e6dd",
+        "chatSessionId": "sess_754daadd-db1c-4577-affc-aaa35b3a081a",
+        "timestamp": 1784323232770
+      }
+    ]
+  }
+}
