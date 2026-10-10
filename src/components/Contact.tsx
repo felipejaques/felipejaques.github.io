@@ -12,20 +12,20 @@ export function Contact() {
         <p className="eyebrow"><span>05</span> Próximo capítulo</p>
         <h2 id="contact-title">Tem um desafio interessante? <em>Vamos conversar.</em></h2>
         <div className="contact-actions">
-          <a className="button button-dark" href={`mailto:${contact.email}`}>Escreva para mim <ArrowUpRight size={17} aria-hidden="true" /></a>
-          <a className="button button-outline" href={`${import.meta.env.BASE_URL}${contact.resume}`} download>
+          <a className="button button-dark" href={`mailto:${contact.email}`} data-goatcounter-click="contato/escreva-para-mim">Escreva para mim <ArrowUpRight size={17} aria-hidden="true" /></a>
+          <a className="button button-outline" href={`${import.meta.env.BASE_URL}${contact.resume}`} download data-goatcounter-click="contato/curriculo">
             Baixar currículo (PDF) <Download size={17} aria-hidden="true" />
           </a>
         </div>
       </m.div>
       <m.div className="contact-links" {...reveal()}>
-        <a href={`mailto:${contact.email}`}>
+        <a href={`mailto:${contact.email}`} data-goatcounter-click="contato/email">
           <Mail size={18} aria-hidden="true" /><span>E-mail</span><ArrowUpRight size={16} aria-hidden="true" />
         </a>
-        <a href={contact.github} target="_blank" rel="noopener noreferrer">
+        <a href={contact.github} target="_blank" rel="noopener noreferrer" data-goatcounter-click="contato/github">
           <Code2 size={18} aria-hidden="true" /><span>GitHub</span><ArrowUpRight size={16} aria-hidden="true" />
         </a>
-        <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
+        <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" data-goatcounter-click="contato/linkedin">
           <span className="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span><ArrowUpRight size={16} aria-hidden="true" />
         </a>
       </m.div>

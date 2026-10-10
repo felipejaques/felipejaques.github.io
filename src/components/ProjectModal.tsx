@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, Mail, X } from 'lucide-react'
+import { slugify, trackEvent } from '../analytics'
 import { contact, type CaseStudy, type Project, type ProjectImage } from '../content'
 
 type Props = {
@@ -20,8 +21,10 @@ export function ProjectModal({ project, onClose }: Props) {
   useEffect(() => {
     const dialog = dialogRef.current
     if (!dialog) return
-    if (project && !dialog.open) dialog.showModal()
-    else if (!project && dialog.open) dialog.close()
+    if (project && !dialog.open) {
+      dialog.showModal()
+      trackEvent(`projeto/${slugify(project.title)}`, `Abriu projeto: ${project.title}`)
+    } else if (!project && dialog.open) dialog.close()
   }, [project])
 
   const subject = project ? `${project.forSale ? 'Interesse em adquirir' : 'Sobre o projeto'}: ${project.title}` : ''
@@ -74,7 +77,14 @@ export function ProjectModal({ project, onClose }: Props) {
               {project.forSale ? 'Tenho interesse' : 'Falar sobre este projeto'} <Mail size={17} aria-hidden="true" />
             </a>
             {project.links.map((link) => (
-              <a key={link.url} className="text-link" href={link.url} target="_blank" rel="noopener noreferrer">
+              <a
+                key={link.url}
+                className="text-link"
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-goatcounter-click={`projeto/${slugify(project.title)}/${slugify(link.label)}`}
+              >
                 {link.label} <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             ))}
