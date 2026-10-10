@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, Mail, X } from 'lucide-react'
-import { contact, type Project, type ProjectImage } from '../content'
+import { contact, type CaseStudy, type Project, type ProjectImage } from '../content'
 
 type Props = {
   project: Project | null
@@ -65,6 +65,8 @@ export function ProjectModal({ project, onClose }: Props) {
             {details.map((paragraph, index) => <p key={index}>{paragraph}</p>)}
           </div>
 
+          {project.caseStudy && <CaseStudySections caseStudy={project.caseStudy} />}
+
           <ul className="tag-list">{project.stack.map((tech) => <li key={tech}>{tech}</li>)}</ul>
 
           <div className="project-modal-actions">
@@ -80,6 +82,29 @@ export function ProjectModal({ project, onClose }: Props) {
         </div>
       )}
     </dialog>
+  )
+}
+
+function CaseStudySections({ caseStudy }: { caseStudy: CaseStudy }) {
+  const lists = [
+    { title: 'Decisões técnicas', items: caseStudy.decisions },
+    { title: 'Dificuldades', items: caseStudy.challenges },
+    { title: 'Aprendizados', items: caseStudy.learnings },
+  ]
+
+  return (
+    <div className="case-study">
+      <section>
+        <h3>Problema</h3>
+        <p>{caseStudy.problem}</p>
+      </section>
+      {lists.map((list) => (
+        <section key={list.title}>
+          <h3>{list.title}</h3>
+          <ul>{list.items.map((item) => <li key={item}>{item}</li>)}</ul>
+        </section>
+      ))}
+    </div>
   )
 }
 

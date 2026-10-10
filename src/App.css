@@ -930,6 +930,43 @@ html:has(.project-modal[open]) {
   line-height: 1.75;
 }
 
+.case-study {
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.case-study section {
+  padding-top: 18px;
+}
+
+.case-study h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.case-study p,
+.case-study ul {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.case-study ul {
+  padding-left: 18px;
+}
+
+.case-study li + li {
+  margin-top: 6px;
+}
+
+.case-study li::marker {
+  color: var(--coral);
+}
+
 .project-modal .tag-list {
   margin-top: 18px;
 }
@@ -1371,7 +1408,9 @@ html:has(.project-modal[open]) {
   .project-modal-header h2 {
     font-size: 23px;
   }
-  .project-modal-text p {
+  .project-modal-text p,
+  .case-study p,
+  .case-study ul {
     font-size: 13px;
   }
   .project-modal-actions .button {
