@@ -231,18 +231,22 @@ export const experience = [
     period: 'MAI 2018 — ATUAL',
     location: 'Blumenau, SC',
     paragraphs: [
-      'Atuação full stack em produtos da plataforma Ronda Senior X, com Angular, Java e Flutter. Participação em soluções como Security Hub, Gestão de Rotinas e Gestão de Ocorrências.',
-      'Antes disso, desenvolvi soluções BPM para FIEP, Porto Seguro e CAIXA, e atuei na sustentação de produtos da Fábrica de Software.',
+      'No Gestão de Rotinas, faço parte da equipe de desenvolvimento do aplicativo mobile em Flutter e, na versão web, ajudei a criar o recurso que gera checklists com IA, tirando do usuário o trabalho de montá-los do zero.',
+      'No Controle de Acesso do Ronda Senior X, durante a pandemia de COVID-19, ajudei a implementar o reconhecimento facial nas catracas, identificando se a pessoa usava máscara e verificando sua temperatura antes da entrada. O recurso é usado por centenas de clientes, milhares de vezes por dia.',
+      'Antes disso, criei fluxos BPM para grandes clientes como CAIXA, Porto Seguro e FIEP, automatizando processos para aumentar a produtividade das equipes.',
     ],
-    tags: ['Angular', 'Java / Spring', 'Flutter', 'Node.js', 'Oracle'],
+    tags: ['Angular', 'Java / Spring', 'Flutter', 'IA', 'BPM', 'Oracle'],
   },
   {
     company: 'SOU.IS Tecnologia e Sistemas',
     role: 'Suporte técnico',
     period: 'FEV 2017 — MAI 2018',
     location: 'Blumenau, SC',
-    paragraphs: ['Suporte a sistemas ERP, ajudando clientes a manter seus processos e operações funcionando.'],
-    tags: ['Suporte técnico', 'ERP'],
+    paragraphs: [
+      'Suporte a sistemas ERP e ao software de emissão de NF-e, ajudando clientes a manter seus processos e operações funcionando.',
+      'Também criei documentos técnicos para que os usuários entendessem melhor o sistema e resolvessem dúvidas com mais autonomia.',
+    ],
+    tags: ['Suporte técnico', 'ERP', 'NF-e', 'Documentação'],
   },
 ]
 
