@@ -1,5 +1,5 @@
 import { m } from 'framer-motion'
-import { ArrowUpRight, Code2, Mail } from 'lucide-react'
+import { ArrowUpRight, Code2, Download, Mail } from 'lucide-react'
 import { contact } from '../content'
 import { useReveal } from '../motion'
 
@@ -11,7 +11,12 @@ export function Contact() {
       <m.div className="contact-copy" {...reveal()}>
         <p className="eyebrow"><span>05</span> Próximo capítulo</p>
         <h2 id="contact-title">Tem um desafio interessante? <em>Vamos conversar.</em></h2>
-        <a className="button button-dark" href={`mailto:${contact.email}`}>Escreva para mim <ArrowUpRight size={17} aria-hidden="true" /></a>
+        <div className="contact-actions">
+          <a className="button button-dark" href={`mailto:${contact.email}`}>Escreva para mim <ArrowUpRight size={17} aria-hidden="true" /></a>
+          <a className="button button-outline" href={`${import.meta.env.BASE_URL}${contact.resume}`} download>
+            Baixar currículo (PDF) <Download size={17} aria-hidden="true" />
+          </a>
+        </div>
       </m.div>
       <m.div className="contact-links" {...reveal()}>
         <a href={`mailto:${contact.email}`}>

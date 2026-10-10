@@ -2,6 +2,8 @@ export const contact = {
   email: 'felipejaques3@gmail.com',
   github: 'https://github.com/felipejaques',
   linkedin: 'https://linkedin.com/in/felipe-jaques',
+  /** Path under public/. */
+  resume: 'felipe-jaques-curriculo.pdf',
 }
 
 export const currentYear = new Date().getFullYear()

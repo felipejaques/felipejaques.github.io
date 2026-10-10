@@ -1034,14 +1034,30 @@ html:has(.project-modal[open]) {
   color: var(--green);
 }
 
-.button-dark {
+.contact-actions {
   margin-top: 29px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button-dark {
   background: var(--ink);
   color: #fff;
 }
 
 .button-dark:hover {
   background: var(--coral);
+  color: #fff;
+}
+
+.button-outline {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+}
+
+.button-outline:hover {
+  background: var(--ink);
   color: #fff;
 }
 
